@@ -1,0 +1,19 @@
+{
+  "name": "cohesion-portfolio",
+  "version": "1.0.0",
+  "description": "1:1 Clone of Cohesion Framer Portfolio with full 3D motion, smooth scroll, and interactive components",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "framer",
+    "framer-motion",
+    "3d",
+    "web-design"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}

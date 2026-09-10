@@ -1,0 +1,2 @@
+import{t as e}from"./rolldown-runtime.Dh6celcD.mjs";import{c as t,o as n}from"./react.B4kFiiQA.mjs";import{c as r,n as i,t as a}from"./framerauth.CBA-1HA1.mjs";function o(e){return n=>{let r=i();if(!r||!r.user)return null;let a=r.user.email;return t(e,{...n,text:a})}}function s(e){return n=>{let r=i();if(!r||!r.user)return null;let a=r.user.name;return t(e,{...n,text:a})}}function c(e){return a(e)}var l=e((()=>{n(),r()}));export{l as i,s as n,c as r,o as t};
+//# sourceMappingURL=FramerAuthV2.CSd485SF.mjs.map
