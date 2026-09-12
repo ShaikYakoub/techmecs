@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import fs from 'fs';
 import path from 'path';
+import { AwardsMorphedMenu } from '@/components/AwardsMorphedMenu';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -9,10 +10,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cohesion.framer.ai'),
-  title: 'Cohesion - Portfolio Template made in Framer',
+  metadataBase: new URL('https://techmecs.in'),
+  title: 'Techmecs — Digital Marketing Agency & Academy | Kadapa',
   description:
-    'Cohesion is a free single-page Framer portfolio template for UI/UX designers and freelancers. Colourful 3D design with services, tech stack, pricing, and projects included.',
+    'Techmecs is a premier digital marketing agency and academy based in Kadapa, providing website development, performance marketing, videography, and student training.',
   icons: {
     icon: [
       { url: '/images/eCX2l5CSlTjb9d7xevX1VTxpwWc.svg', media: '(prefers-color-scheme: light)' },
@@ -22,30 +23,28 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    title: 'Cohesion - Portfolio Template made in Framer',
+    title: 'Techmecs — Digital Marketing Agency & Academy | Kadapa',
     description:
-      'Cohesion is a free single-page Framer portfolio template for UI/UX designers and freelancers. Colourful 3D design with services, tech stack, pricing, and projects included.',
-    url: 'https://cohesion.framer.ai/',
+      'Techmecs is a premier digital marketing agency and academy based in Kadapa, providing website development, performance marketing, videography, and student training.',
+    url: 'https://techmecs.in/',
     images: [
       {
         url: '/images/YYNAY2NX1AQEurN4JkOTy8TcZJw.png',
         width: 1200,
         height: 630,
-        alt: 'Cohesion Portfolio',
+        alt: 'Techmecs Agency',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cohesion - Portfolio Template made in Framer',
+    title: 'Techmecs — Digital Marketing Agency & Academy | Kadapa',
     description:
-      'Cohesion is a free single-page Framer portfolio template for UI/UX designers and freelancers. Colourful 3D design with services, tech stack, pricing, and projects included.',
+      'Techmecs is a premier digital marketing agency and academy based in Kadapa, providing website development, performance marketing, videography, and student training.',
     images: ['/images/YYNAY2NX1AQEurN4JkOTy8TcZJw.png'],
   },
   other: {
-    generator: 'Framer fd0ec14',
-    'framer-search-index': '/modules/searchIndex-Tyew3rs3ueZk.json',
-    'framer-search-index-fallback': '/modules/searchIndex-xKTrPYdBlPB9.json',
+    generator: 'Next.js 16',
     robots: 'max-image-preview:large',
   },
 };
@@ -60,30 +59,17 @@ export default function RootLayout({
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
-    '@id': 'https://www.uihub.design/templates/cohesion#product',
-    name: 'Cohesion — UI/UX Designer Portfolio Framer Template',
+    '@type': 'ProfessionalService',
+    '@id': 'https://techmecs.in/#organization',
+    name: 'Techmecs',
     description:
-      'A free single-page Framer portfolio template for UI/UX designers and freelancers. Colourful 3D design with services, tech stack, pricing plans, projects, and testimonials included.',
-    url: 'https://www.uihub.design/templates/cohesion',
-    image: '/images/lpBCQr5W4Ewj19l58acLZ2k3I4.png',
-    category: 'Personal Portfolio Framer Template',
-    sku: 'UIHUB-COHESION-001',
-    brand: {
-      '@type': 'Brand',
-      name: 'Organization',
-    },
-    offers: {
-      '@type': 'Offer',
-      url: 'https://framer.link/SW15EBF',
-      priceCurrency: 'USD',
-      price: '0',
-      availability: 'https://schema.org/InStock',
-      seller: {
-        '@type': 'Organization',
-        name: 'UIHub',
-        url: 'https://www.uihub.design',
-      },
+      'Techmecs is a premier digital marketing agency and academy in Kadapa offering website development, performance marketing, videography, and student training.',
+    url: 'https://techmecs.in',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Kadapa',
+      addressRegion: 'Andhra Pradesh',
+      addressCountry: 'India',
     },
   };
 
@@ -113,8 +99,65 @@ export default function RootLayout({
           data-framer-components={stylesData.ssrCssComponents}
           dangerouslySetInnerHTML={{ __html: stylesData.ssrCss }}
         />
+        <style
+          id="framer-cleanup-overrides"
+          dangerouslySetInnerHTML={{
+            __html: `
+              .framer-131nhti-container,
+              nav.framer-twS70,
+              [data-framer-name="Desktop - Home"],
+              [data-framer-name="Phone - Home"],
+              [data-framer-name="Tablet - Home"],
+              .framer-1swg9it-container,
+              .framer-1a4gf23-container,
+              .framer-mwe28,
+              #template-overlay,
+              #__framer-badge-container,
+              .__framer-badge,
+              [data-framer-name="Light"].__framer-badge {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                pointer-events: none !important;
+                position: absolute !important;
+                left: -99999px !important;
+                top: -99999px !important;
+                width: 0 !important;
+                height: 0 !important;
+                overflow: hidden !important;
+              }
+              .framer-1b59nf9 {
+                width: 270px !important;
+                left: calc(50% - 135px) !important;
+              }
+              @keyframes hero-gear-spin {
+                from {
+                  transform: rotate(0deg);
+                }
+                to {
+                  transform: rotate(360deg);
+                }
+              }
+              .hero-spinning-gear {
+                display: inline-block !important;
+                vertical-align: -0.08em !important;
+                height: 0.75em !important;
+                width: 0.75em !important;
+                margin: 0 0.25em !important;
+                animation: hero-gear-spin 8s linear infinite !important;
+                transform-origin: 50% 50% !important;
+                flex-shrink: 0 !important;
+                pointer-events: none !important;
+                user-select: none !important;
+              }
+            `,
+          }}
+        />
       </head>
-      <body>{children}</body>
+      <body>
+        <AwardsMorphedMenu />
+        {children}
+      </body>
     </html>
   );
 }
