@@ -1,19 +1,22 @@
 {
-  "name": "cohesion-portfolio",
+  "name": "techmecs-portfolio",
   "version": "1.0.0",
-  "description": "1:1 Clone of Cohesion Framer Portfolio with full 3D motion, smooth scroll, and interactive components",
-  "main": "server.js",
+  "private": true,
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "next dev -p 3001 --webpack",
+    "build": "next build --webpack",
+    "start": "next start -p 3001",
+    "typecheck": "tsc --noEmit"
   },
-  "keywords": [
-    "portfolio",
-    "framer",
-    "framer-motion",
-    "3d",
-    "web-design"
-  ],
-  "author": "Antigravity",
-  "license": "MIT"
+  "dependencies": {
+    "next": "^16.3.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.6.3"
+  }
 }

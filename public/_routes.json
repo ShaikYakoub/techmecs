@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "include": [
+    "/cms/*",
+    "/sites/*"
+  ],
+  "exclude": [
+    "/fonts/*",
+    "/images/*",
+    "/modules/*",
+    "/_next/*"
+  ]
+}
