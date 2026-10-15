@@ -230,11 +230,11 @@ export default function ComingSoonPage() {
                   lineHeight: 1.45,
                   color: '#1f1f1f',
                   margin: 0,
-                  maxWidth: '240px',
+                  maxWidth: '280px',
                   fontWeight: 400,
                 }}
               >
-                Hand-dyed kimono, made in small runs. First collection this autumn
+                Engineering modern digital experiences, web solutions & performance branding
               </p>
             </div>
 
@@ -289,7 +289,7 @@ export default function ComingSoonPage() {
         >
           {/* Interactive WebGL Ripple Canvas */}
           <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
-            <FoyerHeroCanvas imageSrc="/images/foyer/hero.png" />
+            <FoyerHeroCanvas imageSrc="/images/hero-black-gear.jpg" />
           </div>
 
           {/* Floating Card: "Work in progress" */}
@@ -336,8 +336,8 @@ export default function ComingSoonPage() {
               }}
             >
               <img
-                src="/images/foyer/work-in-progress.png"
-                alt="Work in progress kimono"
+                src="/images/hero-black-gear.jpg"
+                alt="Techmecs work in progress"
                 style={{
                   width: '100%',
                   height: '100%',
@@ -387,7 +387,7 @@ export default function ComingSoonPage() {
                   color: 'rgba(255, 255, 255, 0.65)',
                 }}
               >
-                Follow the making of our kimono collection on Instagram
+                Follow our latest digital engineering & design builds
               </p>
             </div>
           </div>
