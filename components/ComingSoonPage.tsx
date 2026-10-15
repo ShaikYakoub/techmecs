@@ -63,7 +63,7 @@ export default function ComingSoonPage() {
           onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.04)')}
           onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
         >
-          <TechmecsLogo fontSize={28} spinGearOnHover={true} />
+          <TechmecsLogo height={26} />
         </a>
 
         {/* Top-Right "Contact" Pill Button */}
@@ -271,7 +271,7 @@ export default function ComingSoonPage() {
                   gap: '6px',
                 }}
               >
-                Website by <TechmecsLogo fontSize={16} spinGearOnHover={true} />
+                Website by <TechmecsLogo height={15} />
               </span>
             </div>
           </div>
