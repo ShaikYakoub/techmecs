@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
-import WaitlistModal from './WaitlistModal';
 import TechmecsLogo from './TechmecsLogo';
 
 // Dynamically import WebGL canvas with SSR disabled per global guideline
@@ -10,15 +9,14 @@ const FoyerHeroCanvas = dynamic(() => import('./FoyerHeroCanvas'), {
   ssr: false,
   loading: () => (
     <img
-      src="/images/foyer/hero.png"
-      alt="Editorial artwork"
+      src="/images/hero-black-gear.jpg"
+      alt="Techmecs kinetic sculpture"
       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
     />
   ),
 });
 
 export default function ComingSoonPage() {
-  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div
@@ -268,106 +266,6 @@ export default function ComingSoonPage() {
           <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
             <FoyerHeroCanvas imageSrc="/images/hero-black-gear.jpg" />
           </div>
-
-          {/* Floating Card: "Work in progress" */}
-          <div
-            className="foyer-floating-card"
-            style={{
-              position: 'absolute',
-              bottom: '32px',
-              right: '32px',
-              zIndex: 30,
-              backgroundColor: 'rgba(24, 24, 26, 0.92)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              borderRadius: '20px',
-              padding: '16px',
-              boxShadow: '0 20px 45px rgba(0, 0, 0, 0.4)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '16px',
-              maxWidth: '380px',
-              cursor: 'pointer',
-              transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-            }}
-            onClick={() => setModalOpen(true)}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-3px)';
-              e.currentTarget.style.boxShadow = '0 25px 55px rgba(0, 0, 0, 0.5)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 20px 45px rgba(0, 0, 0, 0.4)';
-            }}
-          >
-            {/* Thumbnail Image */}
-            <div
-              style={{
-                width: '78px',
-                height: '98px',
-                flexShrink: 0,
-                borderRadius: '12px',
-                overflow: 'hidden',
-                backgroundColor: '#2b2b2e',
-              }}
-            >
-              <img
-                src="/images/hero-black-gear.jpg"
-                alt="Techmecs work in progress"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block',
-                }}
-              />
-            </div>
-
-            {/* Card Content */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
-                <h4
-                  style={{
-                    margin: 0,
-                    fontSize: '16px',
-                    fontWeight: 600,
-                    color: '#ffffff',
-                    fontFamily: '"Stack Sans Headline", sans-serif',
-                    letterSpacing: '-0.01em',
-                  }}
-                >
-                  Work in progress
-                </h4>
-                <div
-                  style={{
-                    width: '26px',
-                    height: '26px',
-                    borderRadius: '50%',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#ffffff',
-                    fontSize: '12px',
-                  }}
-                >
-                  ↗
-                </div>
-              </div>
-
-              <p
-                style={{
-                  margin: 0,
-                  fontSize: '13px',
-                  lineHeight: 1.4,
-                  color: 'rgba(255, 255, 255, 0.65)',
-                }}
-              >
-                Follow our latest digital engineering & design builds
-              </p>
-            </div>
-          </div>
         </div>
 
         {/* =========================================================================
@@ -509,19 +407,10 @@ export default function ComingSoonPage() {
                 min-height: 520px !important;
                 order: 1;
               }
-              .foyer-floating-card {
-                bottom: 20px !important;
-                right: 16px !important;
-                left: 16px !important;
-                max-width: none !important;
-              }
             }
           `,
         }}
       />
-
-      {/* Waitlist Modal */}
-      <WaitlistModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 }
