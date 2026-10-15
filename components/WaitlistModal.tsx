@@ -3,13 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
-interface WaitlistModalProps {
+interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
+export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -48,14 +49,12 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     }
 
     setLoading(true);
-    // Simulate swift server response & save to localStorage
+    // Simulate swift server response & record contact inquiry
     setTimeout(() => {
       try {
-        const stored = JSON.parse(localStorage.getItem('techmecs_waitlist') || '[]');
-        if (!stored.includes(trimmed)) {
-          stored.push(trimmed);
-          localStorage.setItem('techmecs_waitlist', JSON.stringify(stored));
-        }
+        const stored = JSON.parse(localStorage.getItem('techmecs_contacts') || '[]');
+        stored.push({ email: trimmed, message: message.trim(), date: new Date().toISOString() });
+        localStorage.setItem('techmecs_contacts', JSON.stringify(stored));
       } catch (err) {
         // ignore
       }
@@ -69,6 +68,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     setTimeout(() => {
       setSubmitted(false);
       setEmail('');
+      setMessage('');
       setError('');
     }, 300);
   };
@@ -107,7 +107,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
           <motion.div
             role="dialog"
             aria-modal="true"
-            aria-labelledby="waitlist-title"
+            aria-labelledby="contact-title"
             initial={{ opacity: 0, scale: 0.94, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 16 }}
@@ -115,7 +115,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
             style={{
               position: 'relative',
               width: '100%',
-              maxWidth: '460px',
+              maxWidth: '480px',
               backgroundColor: '#161617',
               borderRadius: '24px',
               border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -188,16 +188,16 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       width: '6px',
                       height: '6px',
                       borderRadius: '50%',
-                      backgroundColor: '#55e69e',
+                      backgroundColor: '#4285f4',
                       display: 'inline-block',
                     }}
                   />
-                  EARLY ACCESS
+                  CONTACT
                 </div>
 
                 {/* Title */}
                 <h3
-                  id="waitlist-title"
+                  id="contact-title"
                   style={{
                     fontFamily: '"Stack Sans Headline", -apple-system, BlinkMacSystemFont, sans-serif',
                     fontSize: '28px',
@@ -208,7 +208,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     color: '#ffffff',
                   }}
                 >
-                  Join the waitlist
+                  Get in touch
                 </h3>
 
                 {/* Description */}
@@ -217,12 +217,18 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     fontSize: '14px',
                     lineHeight: 1.5,
                     color: 'rgba(255, 255, 255, 0.65)',
-                    margin: '0 0 24px 0',
+                    margin: '0 0 22px 0',
                     fontFamily: '"Inter", sans-serif',
                   }}
                 >
-                  Be the first to know when we launch. Enter your email below to receive private access
-                  and collection updates.
+                  Have a question or project in mind? Reach out below or email us directly at{' '}
+                  <a
+                    href="mailto:contact@techmecs.com"
+                    style={{ color: '#4285f4', textDecoration: 'underline' }}
+                  >
+                    contact@techmecs.com
+                  </a>
+                  .
                 </p>
 
                 {/* Form */}
@@ -232,18 +238,49 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email"
+                      placeholder="Your email address"
                       required
                       autoFocus
                       style={{
                         width: '100%',
-                        padding: '14px 18px',
+                        padding: '13px 16px',
                         backgroundColor: 'rgba(255, 255, 255, 0.05)',
                         border: '1px solid rgba(255, 255, 255, 0.14)',
                         borderRadius: '14px',
-                        fontSize: '15px',
+                        fontSize: '14px',
                         color: '#ffffff',
                         outline: 'none',
+                        transition: 'border-color 0.2s, background-color 0.2s',
+                        boxSizing: 'border-box',
+                        fontFamily: '"Inter", sans-serif',
+                      }}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.14)';
+                        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                      }}
+                    />
+                  </div>
+
+                  <div style={{ position: 'relative' }}>
+                    <textarea
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder="Tell us about your project or inquiry..."
+                      rows={3}
+                      style={{
+                        width: '100%',
+                        padding: '13px 16px',
+                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                        border: '1px solid rgba(255, 255, 255, 0.14)',
+                        borderRadius: '14px',
+                        fontSize: '14px',
+                        color: '#ffffff',
+                        outline: 'none',
+                        resize: 'none',
                         transition: 'border-color 0.2s, background-color 0.2s',
                         boxSizing: 'border-box',
                         fontFamily: '"Inter", sans-serif',
@@ -281,6 +318,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       transition: 'transform 0.15s, opacity 0.15s',
                       opacity: loading ? 0.7 : 1,
                       fontFamily: '"Inter", sans-serif',
+                      marginTop: '4px',
                     }}
                     onMouseEnter={(e) => {
                       if (!loading) e.currentTarget.style.transform = 'scale(1.02)';
@@ -289,7 +327,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       if (!loading) e.currentTarget.style.transform = 'scale(1)';
                     }}
                   >
-                    {loading ? 'Submitting...' : 'Join waitlist'}
+                    {loading ? 'Sending...' : 'Send message'}
                   </button>
                 </form>
 
@@ -302,7 +340,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     marginBottom: 0,
                   }}
                 >
-                  No spam, ever. Unsubscribe at any time.
+                  We typically reply within 24 business hours.
                 </p>
               </div>
             ) : (
@@ -316,8 +354,8 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     width: '56px',
                     height: '56px',
                     borderRadius: '50%',
-                    backgroundColor: 'rgba(85, 230, 158, 0.15)',
-                    color: '#55e69e',
+                    backgroundColor: 'rgba(66, 133, 244, 0.15)',
+                    color: '#4285f4',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -344,7 +382,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     color: '#fff',
                   }}
                 >
-                  You're on the list!
+                  Message Sent!
                 </h3>
 
                 <p
@@ -355,8 +393,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     marginBottom: '24px',
                   }}
                 >
-                  Thank you for joining. We've recorded your email ({email}) and will notify you as soon
-                  as the new experience goes live.
+                  Thank you for reaching out. We've received your note ({email}) and will get back to you shortly.
                 </p>
 
                 <button

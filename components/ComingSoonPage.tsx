@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import WaitlistModal from './WaitlistModal';
+import TechmecsLogo from './TechmecsLogo';
 
 // Dynamically import WebGL canvas with SSR disabled per global guideline
 const FoyerHeroCanvas = dynamic(() => import('./FoyerHeroCanvas'), {
@@ -48,38 +49,24 @@ export default function ComingSoonPage() {
           pointerEvents: 'none',
         }}
       >
-        {/* Top-Left Geometric Mark */}
+        {/* Top-Left Techmecs Brand Logo */}
         <a
           href="/"
-          aria-label="Homepage"
+          aria-label="Techmecs Homepage"
           style={{
             pointerEvents: 'auto',
             display: 'flex',
             alignItems: 'center',
             textDecoration: 'none',
-            color: '#1f1f1f',
             transition: 'transform 0.2s ease',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.08)')}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.04)')}
           onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 331 202"
-            fill="none"
-            style={{ width: '42px', height: 'auto', display: 'block' }}
-          >
-            <path
-              stroke="#1f1f1f"
-              strokeWidth="48"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M222.564 23.743 96.04 65.463l166 34.919-136.984 79.361"
-            />
-          </svg>
+          <TechmecsLogo fontSize={28} spinGearOnHover={true} />
         </a>
 
-        {/* Top-Right "Join waitlist" Pill Button */}
+        {/* Top-Right "Contact" Pill Button */}
         <button
           onClick={() => setModalOpen(true)}
           style={{
@@ -88,7 +75,7 @@ export default function ComingSoonPage() {
             color: '#f3ece6',
             border: 'none',
             borderRadius: '9999px',
-            padding: '12px 24px',
+            padding: '12px 26px',
             fontSize: '14px',
             fontWeight: 500,
             cursor: 'pointer',
@@ -104,7 +91,7 @@ export default function ComingSoonPage() {
             e.currentTarget.style.boxShadow = '0 4px 14px rgba(0, 0, 0, 0.15)';
           }}
         >
-          Join waitlist
+          Contact
         </button>
       </header>
 
@@ -254,7 +241,7 @@ export default function ComingSoonPage() {
             {/* 2. Email Contact Link */}
             <div style={{ paddingBottom: '4px' }}>
               <a
-                href="mailto:hello@foyer.com"
+                href="mailto:contact@techmecs.com"
                 style={{
                   color: '#1f1f1f',
                   fontSize: '14px',
@@ -267,7 +254,7 @@ export default function ComingSoonPage() {
                 onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.7')}
                 onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
               >
-                hello@foyer.com
+                contact@techmecs.com
               </a>
             </div>
 
@@ -276,12 +263,15 @@ export default function ComingSoonPage() {
               <span
                 style={{
                   fontSize: '13px',
-                  color: '#777777',
-                  letterSpacing: '0.02em',
+                  color: '#555555',
+                  letterSpacing: '0.01em',
                   whiteSpace: 'nowrap',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
                 }}
               >
-                MADE BY <strong style={{ color: '#1f1f1f', fontWeight: 600 }}>tmpl</strong>
+                Website by <TechmecsLogo fontSize={16} spinGearOnHover={true} />
               </span>
             </div>
           </div>
