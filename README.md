@@ -74,7 +74,7 @@ Open your browser at **`http://localhost:3001`**.
 3. Configure build settings:
    - **Framework preset**: `None`
    - **Build command**: `npm run build`
-   - **Build output directory**: `.vercel/output/static` (or `out`)
+   - **Build output directory**: `out`
    - **Compatibility date**: `2026-09-01`
    - **Compatibility flags**: `nodejs_compat`
 4. Deploy! Cloudflare Pages will use `wrangler.jsonc`, `public/_routes.json`, and `public/_headers` automatically.
@@ -82,6 +82,6 @@ Open your browser at **`http://localhost:3001`**.
 ### Option 2: Wrangler CLI
 ```bash
 # Deploy with Wrangler
-npx wrangler pages deploy .vercel/output/static --project-name=cohesion-portfolio
+npx wrangler pages deploy out --project-name=techmecs-portfolio
 ```
 
