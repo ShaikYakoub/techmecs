@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { usePathname } from 'next/navigation';
 
 interface NavLink {
   title: string;
@@ -51,6 +52,7 @@ export function AwardsMorphedMenu({
   btnOpenBg = '#FFFFFF',
   btnOpenColor = '#000000',
 }: AwardsMorphedMenuProps) {
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [contentVisible, setContentVisible] = useState(false);
@@ -197,6 +199,10 @@ export function AwardsMorphedMenu({
       }
     }
   };
+
+  if (pathname === '/') {
+    return null;
+  }
 
   if (!mounted) {
     // Return static SSR placeholder to prevent hydration flicker

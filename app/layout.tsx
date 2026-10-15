@@ -87,6 +87,34 @@ export default function RootLayout({
         />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <style
+          id="foyer-font-css"
+          dangerouslySetInnerHTML={{
+            __html: `
+              @font-face {
+                font-family: 'Stack Sans Headline';
+                src: url('/fonts/stacksansheadline-700.woff2') format('woff2');
+                font-weight: 700;
+                font-style: normal;
+                font-display: swap;
+              }
+              @font-face {
+                font-family: 'Stack Sans Headline';
+                src: url('/fonts/stacksansheadline-500.woff2') format('woff2');
+                font-weight: 500;
+                font-style: normal;
+                font-display: swap;
+              }
+              @font-face {
+                font-family: 'Stack Sans Headline';
+                src: url('/fonts/stacksansheadline-400.woff2') format('woff2');
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap;
+              }
+            `,
+          }}
+        />
+        <style
           data-framer-font-css=""
           dangerouslySetInnerHTML={{ __html: stylesData.fontCss }}
         />
