@@ -66,18 +66,24 @@ export default function ComingSoonPage() {
           <TechmecsLogo height={26} />
         </a>
 
-        {/* Top-Right "Contact" Pill Button */}
-        <button
-          onClick={() => setModalOpen(true)}
+        {/* Top-Right "Contact" Pill Button -> WhatsApp */}
+        <a
+          href="https://wa.me/919959989930"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contact Techmecs on WhatsApp"
           style={{
             pointerEvents: 'auto',
             backgroundColor: '#1f1f1f',
             color: '#f3ece6',
-            border: 'none',
             borderRadius: '9999px',
             padding: '12px 26px',
             fontSize: '14px',
             fontWeight: 500,
+            textDecoration: 'none',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
             cursor: 'pointer',
             transition: 'transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease',
             boxShadow: '0 4px 14px rgba(0, 0, 0, 0.15)',
@@ -92,7 +98,7 @@ export default function ComingSoonPage() {
           }}
         >
           Contact
-        </button>
+        </a>
       </header>
 
       {/* =========================================================================
@@ -166,12 +172,12 @@ export default function ComingSoonPage() {
                   </svg>
                 </a>
 
-                {/* TikTok */}
+                {/* WhatsApp */}
                 <a
-                  href="https://tiktok.com"
+                  href="https://wa.me/919959989930"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="TikTok"
+                  aria-label="WhatsApp"
                   style={{
                     color: '#1f1f1f',
                     display: 'flex',
@@ -188,37 +194,8 @@ export default function ComingSoonPage() {
                     e.currentTarget.style.transform = 'scale(1)';
                   }}
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-                  </svg>
-                </a>
-
-                {/* Pinterest */}
-                <a
-                  href="https://pinterest.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Pinterest"
-                  style={{
-                    color: '#1f1f1f',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    transition: 'opacity 0.2s ease, transform 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.opacity = '0.6';
-                    e.currentTarget.style.transform = 'scale(1.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.opacity = '1';
-                    e.currentTarget.style.transform = 'scale(1)';
-                  }}
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                    <line x1="12" y1="9" x2="12" y2="21" />
-                    <path d="M8 12a4 4 0 1 1 8 0c0 3-2 5-4 5s-2-2-2-4" />
-                    <circle cx="12" cy="12" r="10" />
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                   </svg>
                 </a>
               </div>
@@ -412,7 +389,7 @@ export default function ComingSoonPage() {
             boxSizing: 'border-box',
           }}
         >
-          {/* Date / Status Pill Badge */}
+          {/* Location / Status Pill Badge */}
           <div style={{ display: 'inline-block', marginBottom: '18px' }}>
             <span
               style={{
@@ -420,14 +397,15 @@ export default function ComingSoonPage() {
                 backgroundColor: '#1f1f1f',
                 color: '#f3ece6',
                 borderRadius: '9999px',
-                padding: '5px 16px',
-                fontSize: '13px',
-                fontWeight: 500,
-                letterSpacing: '0.01em',
+                padding: '6px 18px',
+                fontSize: '12px',
+                fontWeight: 600,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
                 boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
               }}
             >
-              October 2027
+              KADAPA
             </span>
           </div>
 
